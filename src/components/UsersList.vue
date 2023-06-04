@@ -3,22 +3,23 @@
     class="mx-auto"
     max-width="450"
   >
-
     <div
       v-for="item in list"
       :key="item.id"
-      item-props
-      lines="three"
       class="item"
     >
-    <v-avatar @click="handleShowAddress(item.id)" :src="item.prependAvatar">
+    <v-avatar
+      @click="handleShowAddress(item.id)"
+      :src="item.prependAvatar"
+      class="avatar"
+    >
       <v-img
         :src="item.prependAvatar"
-        alt="John"
+        :alt="item.title"
       ></v-img>
-      </v-avatar>
+    </v-avatar>
       <div v-html="item.subtitle"/>
-      {{ checkShowAddress(item.id) ? item.address : '' }}
+      <span>{{ checkShowAddress(item.id) ? item.address : '' }}</span>
     </div>
   </v-card>
 </template>
@@ -52,5 +53,8 @@
 <style lang="scss">
 .item {
   padding: 15px;
+}
+.avatar {
+  cursor: pointer;
 }
 </style>

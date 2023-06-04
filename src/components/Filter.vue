@@ -19,10 +19,9 @@
 </template>
 
 <script setup>
+  import { useFiltersStore } from '@/store/app'
 
-  import { useAppStore } from '@/store/app'
-
-  const store = useAppStore()
+  const store = useFiltersStore()
 
   defineProps({
     listCountry: {
@@ -44,10 +43,8 @@
     store.chooseCountry(event)
   }
 
-
   function updateScore(event) {
     store.chooseScore(event)
   }
-
 
 </script>

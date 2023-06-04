@@ -1,7 +1,7 @@
 // Utilities
 import { defineStore } from 'pinia'
 
-export const useAppStore = defineStore('app', {
+export const useFiltersStore = defineStore('app', {
   state: () => ({
     variantCountry: '',
     variantScore: ''

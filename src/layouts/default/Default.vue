@@ -6,5 +6,5 @@
 
 <script lang="ts" setup>
 
-import ContentBlock from '../../views/ContentBlock.vue'
+import ContentBlock from '@/views/ContentBlock.vue'
 </script>

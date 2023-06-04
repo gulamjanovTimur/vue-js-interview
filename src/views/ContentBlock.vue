@@ -39,10 +39,9 @@
   import FilterComponent from '@/components/Filter.vue';
   import { ref, watch } from 'vue'
   import usersJSON from '@/assets/users.json'
-  import { useAppStore } from '@/store/app'
+  import { useFiltersStore } from '@/store/app'
 
-  const store = useAppStore()
-
+  const store = useFiltersStore()
 
 
   const listCountry = ref(
@@ -81,26 +80,26 @@
 
   function filterUsers(data) {
     return data.filter(el => {
-        let result = true
-        if (store.variantScore === '> 20') {
-          result = Number(el.score) > 20
-          if(!(Number(el.score) > 20)) return false
-        } else if (store.variantScore === '< 10') {
-          result = Number(el.score) < 10
-          if(!(Number(el.score) < 10)) return false
-        } else {
-          result = true
-        }
+      let result = true
+      if (store.variantScore === '> 20') {
+        result = Number(el.score) > 20
+        if(!(Number(el.score) > 20)) return false
+      } else if (store.variantScore === '< 10') {
+        result = Number(el.score) < 10
+        if(!(Number(el.score) < 10)) return false
+      } else {
+        result = true
+      }
 
-        if (store.variantCountry === 'russia') {
-          result = el.country === 'russia'
-        } else if (store.variantCountry === 'usa') {
-          result = el.country === 'usa'
-        } else {
-          result = true
-        }
+      if (store.variantCountry === 'russia') {
+        result = el.country === 'russia'
+      } else if (store.variantCountry === 'usa') {
+        result = el.country === 'usa'
+      } else {
+        result = true
+      }
 
-        return result
+      return result
     })
   }
 
