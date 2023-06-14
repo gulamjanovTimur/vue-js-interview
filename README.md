@@ -9,5 +9,5 @@ yarn
 2. Запуск проекта
 
 ```bash
-npm run dev
+yarn dev
 ```
